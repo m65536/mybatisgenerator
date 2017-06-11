@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mo.test.mapper.OrderDistributeMapper" >
+  <resultMap id="BaseResultMap" type="com.mo.test.model.OrderDistribute" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="order_id" property="orderId" jdbcType="BIGINT" />
+    <result column="shop_id" property="shopId" jdbcType="VARCHAR" />
+    <result column="shop_name" property="shopName" jdbcType="VARCHAR" />
+    <result column="dealer_id" property="dealerId" jdbcType="VARCHAR" />
+    <result column="dealer_name" property="dealerName" jdbcType="VARCHAR" />
+    <result column="market_id" property="marketId" jdbcType="VARCHAR" />
+    <result column="market_name" property="marketName" jdbcType="VARCHAR" />
+    <result column="dist_status" property="distStatus" jdbcType="TINYINT" />
+    <result column="dist_time" property="distTime" jdbcType="TIMESTAMP" />
+    <result column="dist_user_id" property="distUserId" jdbcType="VARCHAR" />
+    <result column="dist_user_name" property="distUserName" jdbcType="VARCHAR" />
+    <result column="accept_time" property="acceptTime" jdbcType="TIMESTAMP" />
+    <result column="accept_user_id" property="acceptUserId" jdbcType="VARCHAR" />
+    <result column="accept_user_name" property="acceptUserName" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, order_id, shop_id, shop_name, dealer_id, dealer_name, market_id, market_name, 
+    dist_status, dist_time, dist_user_id, dist_user_name, accept_time, accept_user_id, 
+    accept_user_name, mobile
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from tx_order_distribute
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from tx_order_distribute
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.mo.test.model.OrderDistribute" useGeneratedKeys="true" keyProperty="id" >
+    insert into tx_order_distribute (order_id, shop_id, shop_name, 
+      dealer_id, dealer_name, market_id, 
+      market_name, dist_status, dist_time, 
+      dist_user_id, dist_user_name, accept_time, 
+      accept_user_id, accept_user_name, mobile
+      )
+    values (#{orderId,jdbcType=BIGINT}, #{shopId,jdbcType=VARCHAR}, #{shopName,jdbcType=VARCHAR}, 
+      #{dealerId,jdbcType=VARCHAR}, #{dealerName,jdbcType=VARCHAR}, #{marketId,jdbcType=VARCHAR}, 
+      #{marketName,jdbcType=VARCHAR}, #{distStatus,jdbcType=TINYINT}, #{distTime,jdbcType=TIMESTAMP}, 
+      #{distUserId,jdbcType=VARCHAR}, #{distUserName,jdbcType=VARCHAR}, #{acceptTime,jdbcType=TIMESTAMP}, 
+      #{acceptUserId,jdbcType=VARCHAR}, #{acceptUserName,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mo.test.model.OrderDistribute" useGeneratedKeys="true" keyProperty="id" >
+    insert into tx_order_distribute
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="shopId != null" >
+        shop_id,
+      </if>
+      <if test="shopName != null" >
+        shop_name,
+      </if>
+      <if test="dealerId != null" >
+        dealer_id,
+      </if>
+      <if test="dealerName != null" >
+        dealer_name,
+      </if>
+      <if test="marketId != null" >
+        market_id,
+      </if>
+      <if test="marketName != null" >
+        market_name,
+      </if>
+      <if test="distStatus != null" >
+        dist_status,
+      </if>
+      <if test="distTime != null" >
+        dist_time,
+      </if>
+      <if test="distUserId != null" >
+        dist_user_id,
+      </if>
+      <if test="distUserName != null" >
+        dist_user_name,
+      </if>
+      <if test="acceptTime != null" >
+        accept_time,
+      </if>
+      <if test="acceptUserId != null" >
+        accept_user_id,
+      </if>
+      <if test="acceptUserName != null" >
+        accept_user_name,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="shopId != null" >
+        #{shopId,jdbcType=VARCHAR},
+      </if>
+      <if test="shopName != null" >
+        #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="dealerId != null" >
+        #{dealerId,jdbcType=VARCHAR},
+      </if>
+      <if test="dealerName != null" >
+        #{dealerName,jdbcType=VARCHAR},
+      </if>
+      <if test="marketId != null" >
+        #{marketId,jdbcType=VARCHAR},
+      </if>
+      <if test="marketName != null" >
+        #{marketName,jdbcType=VARCHAR},
+      </if>
+      <if test="distStatus != null" >
+        #{distStatus,jdbcType=TINYINT},
+      </if>
+      <if test="distTime != null" >
+        #{distTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="distUserId != null" >
+        #{distUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="distUserName != null" >
+        #{distUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTime != null" >
+        #{acceptTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="acceptUserId != null" >
+        #{acceptUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptUserName != null" >
+        #{acceptUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mo.test.model.OrderDistribute" >
+    update tx_order_distribute
+    <set >
+      <if test="orderId != null" >
+        order_id = #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="shopId != null" >
+        shop_id = #{shopId,jdbcType=VARCHAR},
+      </if>
+      <if test="shopName != null" >
+        shop_name = #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="dealerId != null" >
+        dealer_id = #{dealerId,jdbcType=VARCHAR},
+      </if>
+      <if test="dealerName != null" >
+        dealer_name = #{dealerName,jdbcType=VARCHAR},
+      </if>
+      <if test="marketId != null" >
+        market_id = #{marketId,jdbcType=VARCHAR},
+      </if>
+      <if test="marketName != null" >
+        market_name = #{marketName,jdbcType=VARCHAR},
+      </if>
+      <if test="distStatus != null" >
+        dist_status = #{distStatus,jdbcType=TINYINT},
+      </if>
+      <if test="distTime != null" >
+        dist_time = #{distTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="distUserId != null" >
+        dist_user_id = #{distUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="distUserName != null" >
+        dist_user_name = #{distUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTime != null" >
+        accept_time = #{acceptTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="acceptUserId != null" >
+        accept_user_id = #{acceptUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptUserName != null" >
+        accept_user_name = #{acceptUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mo.test.model.OrderDistribute" >
+    update tx_order_distribute
+    set order_id = #{orderId,jdbcType=BIGINT},
+      shop_id = #{shopId,jdbcType=VARCHAR},
+      shop_name = #{shopName,jdbcType=VARCHAR},
+      dealer_id = #{dealerId,jdbcType=VARCHAR},
+      dealer_name = #{dealerName,jdbcType=VARCHAR},
+      market_id = #{marketId,jdbcType=VARCHAR},
+      market_name = #{marketName,jdbcType=VARCHAR},
+      dist_status = #{distStatus,jdbcType=TINYINT},
+      dist_time = #{distTime,jdbcType=TIMESTAMP},
+      dist_user_id = #{distUserId,jdbcType=VARCHAR},
+      dist_user_name = #{distUserName,jdbcType=VARCHAR},
+      accept_time = #{acceptTime,jdbcType=TIMESTAMP},
+      accept_user_id = #{acceptUserId,jdbcType=VARCHAR},
+      accept_user_name = #{acceptUserName,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -143,8 +143,8 @@
 
                 <dependencies>
                     <dependency>
-                        <groupId>com.chinaredstar</groupId>
-                        <artifactId>p-trade-oc-jdbc</artifactId>
+                        <groupId>com.mo</groupId>
+                        <artifactId>test</artifactId>
                         <scope>system</scope>
                         <systemPath>${basedir}/target/test-1.0-SNAPSHOT.jar</systemPath>
                         <version>1.0.2.RELEASE</version>

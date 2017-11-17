@@ -1,4 +1,4 @@
-package com.mo.test.mybatisgenerater;
+package com.mo.test.case2;
 
 /**
  * Created by MoXingwang on 2017/6/11.
